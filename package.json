@@ -9,9 +9,32 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "^4.3.1",
+    "bulma": "^0.7.4",
+    "chart.js": "^2.7.3",
+    "detect-browser": "^4.1.0",
+    "element-resize-detector": "^1.1.15",
+    "epic-spinners": "^1.0.4",
+    "es6-promise": "^4.2.6",
+    "flag-icon-css": "^3.3.0",
+    "font-awesome": "^4.7.0",
+    "ionicons": "^4.5.5",
+    "kewler": "^1.0.8",
+    "medium-editor": "^5.23.3",
+    "normalize.css": "^8.0.1",
+    "v-tooltip": "^2.0.0-rc.33",
+    "vee-validate": "^2.1.7",
     "vue": "^2.6.6",
+    "vue-bulma-expanding": "^0.0.1",
+    "vue-chartjs": "^3.4.0",
+    "vue-flatpickr-component": "^8.1.1",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue-slider-component": "^3.0.5",
+    "vue-toasted": "^1.1.26",
+    "vuetable-2": "^1.7.5",
+    "vuex": "^3.0.1",
+    "vuex-i18n": "^1.11.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
