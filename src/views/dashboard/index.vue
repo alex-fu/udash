@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard-container">
+    <statistic-card></statistic-card>
     <div class="dashboard-text">name:{{ name }}</div>
     <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
   </div>
@@ -7,9 +8,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import StatisticCard from './components/StatisticCard'
 
 export default {
   name: 'Dashboard',
+  components: { StatisticCard },
   computed: {
     ...mapGetters([
       'name',
