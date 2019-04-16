@@ -8,6 +8,7 @@ Vue.use(Router)
 
 /* Layout */
 import Layout from '../views/layout/Layout'
+import Dashboard from '../views/dashboard'
 
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -24,18 +25,73 @@ import Layout from '../views/layout/Layout'
 **/
 export const constantRouterMap = [
   { path: '/login', component: () => import('@/views/login/index'), hidden: true },
-  { path: '/404', component: () => import('@/views/404'), hidden: true },
+  { path: '/404', component: () => import('@/views/404'), hidden: true }
+]
 
+const variables = [
+  { name: 'dashboard', title: 'all site domain', type: 'dashboard' },
+  { name: 'broker-dashboard', title: 'broker domain', type: 'dashboard' },
+  { name: 'pe-dashboard', title: 'pe domain', type: 'dashboard' }
+]
+
+const tabConfig = [
+  {
+    index: 1,
+    title: 'System',
+    url: 'http://baidu.com'
+  },
+  {
+    index: 2,
+    title: 'Trade',
+    url: 'http://baidu.com'
+  }
+]
+const domainConfig = [
+  'broker', 'pe'
+]
+
+const groupConfig = [
+  'dep1-group2', 'dep1-group1'
+]
+
+const groupMembers = [
+  'fuyifeng435', 'dingguangxian'
+]
+export const childrenDashboard = variables.map(v => {
+  return {
+    path: v.name,
+    component: Dashboard,
+    meta: { title: v.title, icon: 'example' },
+    props: {
+      tabConfig,
+      domainConfig,
+      groupConfig,
+      groupMembers
+    }
+  }
+})
+
+// export const childrenDashboard = [
+//   {
+//     path: 'yeb-dashboard',
+//     // component: '../views/dashboard/index',
+//     component: Dashboard,
+//     meta: { title: 'yeb dashboard', icon: 'example' }
+//   }
+// ]
+export const variableRouterMap = [
   {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
     name: 'Dashboard',
-    hidden: true,
-    children: [{
-      path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
-    }]
+    meta: { title: 'Dashboard', icon: 'example' },
+    hidden: false,
+    // children: [{
+    //   path: 'dashboard',
+    //   component: () => import('@/views/dashboard/index')
+    // }]
+    children: childrenDashboard
   },
 
   {
@@ -142,7 +198,7 @@ export const constantRouterMap = [
     ]
   },
 
-  { path: '*', redirect: '/404', hidden: true }
+  { path: '*', redirect: '/', hidden: true }
 ]
 
 export default new Router({

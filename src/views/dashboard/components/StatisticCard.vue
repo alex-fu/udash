@@ -31,7 +31,7 @@ export default {
     changeItem: function(index) {
       if (this.currentIndex !== index) {
         this.currentIndex = index
-        alert(index)
+        // alert(index)
       }
     }
   }
